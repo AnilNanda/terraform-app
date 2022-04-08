@@ -25,7 +25,7 @@ resource "aws_instance" "jenkins" {
   ami = data.aws_ami.jenkins_ami.id
   key_name = "deployer-key"
   subnet_id = module.vpc.subnet_id
-  vpc_security_group_ids =  = ["sg-07727d3c3af605739"]
+  vpc_security_group_ids = ["sg-07727d3c3af605739"]
   tags = {
     "Name" = "jenkins"
   }
