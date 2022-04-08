@@ -1,0 +1,6 @@
+#cloud-config
+packages:
+  - jenkins
+runcmd:
+  - systemctl start jenkins
+  - systemctl enable jenkins
