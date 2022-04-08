@@ -20,7 +20,7 @@ module "vpc" {
 
 module "httpdserver" {
   source  = "app.terraform.io/anilnanda/anil-httpd/aws"
-  version = "0.0.4"
+  version = "0.0.5"
   # insert required variables here
   instance_type = var.instance_type
   vpc_id = module.vpc.vpc_id
