@@ -4,10 +4,10 @@ data "template_file" "user_data_jenkins" {
 
 data "aws_ami" "jenkins_ami" {
   most_recent = true
-  owners      = ["137112412989"]
+  owners      = ["435122781463"]
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-5.10-hvm-2.0.20220316.0-x86_64*"]
+    values = ["jenkins"]
   }
   filter {
     name   = "virtualization-type"
@@ -28,9 +28,9 @@ data "aws_ami" "httpd_ami" {
   }
 }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket = "terr-buck-xajhab12"
-}
+# resource "aws_s3_bucket" "bucket" {
+#   bucket = "terr-buck-xajhab12"
+# }
 
 resource "aws_instance" "jenkins" {
   instance_type          = var.instance_type
@@ -55,7 +55,7 @@ resource "aws_instance" "httpd" {
   subnet_id              = module.vpc.subnet_id
   vpc_security_group_ids = ["sg-07727d3c3af605739"]
   tags = {
-    "Name" = "jenkins"
+    "Name" = "httpd"
   }
   depends_on = [
     module.httpdserver
