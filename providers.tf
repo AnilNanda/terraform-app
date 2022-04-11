@@ -7,7 +7,10 @@ terraform {
     }
   }
   required_providers {
-    ansible = "~> 1.0"
+    ansible = {
+      source = "habakke/ansible"
+      version = "1.0.10"
+    }
   }
 }
 
