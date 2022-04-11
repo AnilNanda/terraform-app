@@ -3,7 +3,7 @@
 #   instance_type = "t2.micro"
 #   vpc_id = module.vpc.vpc_id
 #   subnet_id = module.vpc.subnet_id
-  
+
 # }
 
 # module "vpc" {
@@ -23,8 +23,8 @@ module "httpdserver" {
   version = "0.0.6"
   # insert required variables here
   instance_type = var.instance_type
-  vpc_id = module.vpc.vpc_id
-  subnet_id = module.vpc.subnet_id
-  public_key = var.public_key
-  inbound_ip = var.inbound_ip
+  vpc_id        = module.vpc.vpc_id
+  subnet_id     = module.vpc.subnet_id
+  public_key    = var.public_key
+  inbound_ip    = var.inbound_ip
 }
