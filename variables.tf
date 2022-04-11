@@ -7,5 +7,5 @@ variable "public_key" {
 }
 
 variable "inbound_ip" {
-    type = string
+  type = string
 }
