@@ -6,6 +6,9 @@ terraform {
       name = "terraformProject"
     }
   }
+  required_providers {
+    ansible = "~> 1.0"
+  }
 }
 
 provider "aws" {
