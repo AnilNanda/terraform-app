@@ -31,16 +31,19 @@ source "amazon-ebs" "jenkins" {
 
 build {
   sources = ["source.amazon-ebs.httpd"]
-  provisioner "shell" {
-    script = "installhttpd.sh"
+  provisioner "ansible" {
+    playbook_file = "./httpd.yml"
   }
-  provisioner "file" {
-    source      = "index.html"
-    destination = "/home/ec2-user/"
-  }
-  provisioner "shell" {
-    inline = ["sudo cp -rf /home/ec2-user/index.html /var/www/html/"]
-  }
+#  provisioner "shell" {
+#    script = "installhttpd.sh"
+#  }
+#  provisioner "file" {
+#    source      = "index.html"
+#    destination = "/home/ec2-user/"
+#  }
+#  provisioner "shell" {
+#    inline = ["sudo cp -rf /home/ec2-user/index.html /var/www/html/"]
+#  }
 
 }
 

@@ -6,6 +6,12 @@ terraform {
       name = "terraformProject"
     }
   }
+  required_providers {
+    ansible = {
+      source = "habakke/ansible"
+      version = "1.0.10"
+    }
+  }
 }
 
 provider "aws" {

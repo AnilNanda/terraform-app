@@ -39,6 +39,10 @@ resource "aws_instance" "jenkins" {
   key_name               = "deployer-key"
   subnet_id              = module.vpc.subnet_id
   vpc_security_group_ids = ["sg-07727d3c3af605739"]
+  provisioner "ansible" {
+    playbook_file = "/httpd.yml"
+
+  }
   tags = {
     "Name" = "jenkins"
   }
@@ -50,7 +54,8 @@ resource "aws_instance" "jenkins" {
 resource "aws_instance" "httpd" {
   instance_type = var.instance_type
   #user_data = data.template_file.user_data_jenkins.rendered
-  ami                    = data.aws_ami.httpd_ami.id
+  #ami                    = data.aws_ami.httpd_ami.id
+  ami                    = "ami-0c02fb55956c7d316"
   key_name               = "deployer-key"
   subnet_id              = module.vpc.subnet_id
   vpc_security_group_ids = ["sg-07727d3c3af605739"]
